@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
+import com.bumptech.glide.Glide
 import com.pokedex.databinding.ActivityMainBinding
 import com.pokedex.ui.viewmodel.PokemonViewModel
 
@@ -22,8 +23,12 @@ class MainActivity : AppCompatActivity() {
         pokemonViewModel.onCreate()
 
         pokemonViewModel.pokemonModel.observe(this, Observer {
+            binding.tvId.text = it?.id.toString()
             binding.tvName.text = it?.name
-            binding.tvUrl.text = it?.url
+            binding.tvWeight.text = "Weight: ${it?.weight} kg"
+            binding.tvHeight.text = "Height: ${it?.height} ft"
+
+            Glide.with(this).load(it?.image?.url).into(binding.ivPokemon);
         })
 
         pokemonViewModel.isLoading.observe(this, Observer {

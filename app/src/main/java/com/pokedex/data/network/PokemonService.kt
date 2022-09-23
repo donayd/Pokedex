@@ -9,10 +9,10 @@ class PokemonService {
 
     private val retrofit = RetrofitHelper.getRetrofit()
 
-    suspend fun getPokemon(): List<PokemonModel> {
+    suspend fun getPokemon(id: Int): PokemonModel? {
         return withContext(Dispatchers.IO) {
-            val response = retrofit.create(PokemonApiClient::class.java).getAllPokemon()
-            response.body()?.results ?: emptyList()
+            val response = retrofit.create(PokemonApiClient::class.java).getPokemon(id)
+            response.body()
         }
     }
 

@@ -7,6 +7,6 @@ class GetPokemonUseCase {
 
     private val repository = PokemonRepository()
 
-    suspend operator fun invoke(): List<PokemonModel>? = repository.getAllPokemon()
+    suspend operator fun invoke(id: Int): PokemonModel? = repository.getPokemon(id)
 
 }
