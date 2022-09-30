@@ -3,24 +3,31 @@ package com.pokedex.ui.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.pokedex.data.model.PokemonModel
-import com.pokedex.domain.GetPokemonUseCase
+import com.pokedex.domain.GetPokemonsUseCase
 import com.pokedex.domain.GetRandomPokemonUseCase
+import com.pokedex.domain.model.Pokemon
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class PokemonViewModel : ViewModel() {
+@HiltViewModel
+class PokemonViewModel @Inject constructor(
+    private val getPokemonsUseCase: GetPokemonsUseCase,
+    private val getRandomPokemonUseCase: GetRandomPokemonUseCase
+) : ViewModel() {
 
-    val pokemonModel = MutableLiveData<PokemonModel?>()
+    val pokemonModel = MutableLiveData<Pokemon>()
     val isLoading = MutableLiveData<Boolean>()
-
-    var getPokemonUseCase = GetPokemonUseCase()
-    var getRandomPokemonUseCase = GetRandomPokemonUseCase()
 
     fun onCreate() {
         viewModelScope.launch {
             isLoading.postValue(true)
-            pokemonModel.postValue(getPokemonUseCase(25))
-            isLoading.postValue(false)
+            val pokemons = getPokemonsUseCase()
+
+            if (!pokemons.isNullOrEmpty()) {
+                pokemonModel.postValue(pokemons[125])
+                isLoading.postValue(false)
+            }
         }
     }
 
@@ -28,7 +35,7 @@ class PokemonViewModel : ViewModel() {
         viewModelScope.launch {
             isLoading.postValue(true)
             val pokemon = getRandomPokemonUseCase()
-            pokemonModel.postValue(pokemon)
+            pokemonModel.postValue(pokemon!!)
             isLoading.postValue(false)
         }
     }

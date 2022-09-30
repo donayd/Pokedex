@@ -1,14 +1,16 @@
 package com.pokedex.ui.view
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.pokedex.databinding.ActivityMainBinding
 import com.pokedex.ui.viewmodel.PokemonViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -23,12 +25,13 @@ class MainActivity : AppCompatActivity() {
         pokemonViewModel.onCreate()
 
         pokemonViewModel.pokemonModel.observe(this, Observer {
-            binding.tvId.text = it?.id.toString()
-            binding.tvName.text = it?.name
-            binding.tvWeight.text = "Weight: ${it?.weight} kg"
-            binding.tvHeight.text = "Height: ${it?.height} ft"
+            binding.tvId.text = it.id.toString()
+            binding.tvName.text = it.name
+            binding.tvWeight.text = "Weight: ${it.weight} kg"
+            binding.tvHeight.text = "Height: ${it.height} ft"
 
-            Glide.with(this).load(it?.image?.url).into(binding.ivPokemon);
+            Glide.with(this).load(it?.image).into(binding.ivPokemon)
+
         })
 
         pokemonViewModel.isLoading.observe(this, Observer {
