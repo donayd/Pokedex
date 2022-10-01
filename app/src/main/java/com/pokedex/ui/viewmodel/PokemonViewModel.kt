@@ -25,7 +25,7 @@ class PokemonViewModel @Inject constructor(
             val pokemons = getPokemonsUseCase()
 
             if (!pokemons.isNullOrEmpty()) {
-                pokemonModel.postValue(pokemons[125])
+                pokemonModel.postValue(pokemons[0])
                 isLoading.postValue(false)
             }
         }
