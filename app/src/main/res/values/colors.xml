@@ -7,6 +7,8 @@
     <color name="deep_blue">#020852</color>
     <color name="green">#3CF254</color>
     <color name="dark_green">#00B050</color>
+    <color name="yellow">#EFEF66</color>
+    <color name="dark_yellow">#FFC000</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 </resources>

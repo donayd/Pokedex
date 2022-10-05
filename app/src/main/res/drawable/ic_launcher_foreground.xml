@@ -1,8 +1,10 @@
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:width="240dp"
     android:height="240dp"
     android:viewportWidth="100"
-    android:viewportHeight="100">
+    android:viewportHeight="100"
+    tools:ignore="VectorRaster">
     <group
         android:scaleX="0.036"
         android:scaleY="0.036"
@@ -10,28 +12,34 @@
         android:translateY="8">
         <group>
             <path
-                android:fillColor="#FF0000"
-                android:pathData="M0,0h2338v2339h-2338z" />
+                android:fillColor="@color/red"
+                android:pathData="M0,0h2338v2339h-2338z"
+                tools:ignore="VectorRaster" />
             <path
-                android:fillColor="#FFFFFF"
-                android:pathData="M0,1169h2338v1170h-2338z" />
+                android:fillColor="@color/white"
+                android:pathData="M0,1169h2338v1170h-2338z"
+                tools:ignore="VectorRaster" />
             <path
-                android:fillColor="#FF000000"
-                android:pathData="M0,975h2338v389h-2338z" />
+                android:fillColor="@color/black"
+                android:pathData="M0,975h2338v389h-2338z"
+                tools:ignore="VectorRaster" />
             <path
-                android:fillColor="#FF000000"
+                android:fillColor="@color/black"
                 android:fillType="evenOdd"
-                android:pathData="M727,1169.5C727,925.7 924.9,728 1169,728 1413.1,728 1611,925.7 1611,1169.5 1611,1413.3 1413.1,1611 1169,1611 924.9,1611 727,1413.3 727,1169.5Z" />
+                android:pathData="M727,1169.5C727,925.7 924.9,728 1169,728 1413.1,728 1611,925.7 1611,1169.5 1611,1413.3 1413.1,1611 1169,1611 924.9,1611 727,1413.3 727,1169.5Z"
+                tools:ignore="VectorRaster" />
             <path
-                android:fillColor="#FFFFFF"
+                android:fillColor="@color/white"
                 android:fillType="evenOdd"
-                android:pathData="M831,1169.5C831,982.6 982.3,831 1169,831 1355.7,831 1507,982.6 1507,1169.5 1507,1356.4 1355.7,1508 1169,1508 982.3,1508 831,1356.4 831,1169.5Z" />
+                android:pathData="M831,1169.5C831,982.6 982.3,831 1169,831 1355.7,831 1507,982.6 1507,1169.5 1507,1356.4 1355.7,1508 1169,1508 982.3,1508 831,1356.4 831,1169.5Z"
+                tools:ignore="VectorRaster" />
             <path
-                android:fillColor="#FFFFFF"
+                android:fillColor="@color/white"
                 android:fillType="evenOdd"
                 android:pathData="M930,1169.5C930,1037.8 1037,931 1169,931 1301,931 1408,1037.8 1408,1169.5 1408,1301.2 1301,1408 1169,1408 1037,1408 930,1301.2 930,1169.5Z"
                 android:strokeWidth="27.5"
-                android:strokeColor="#000000" />
+                android:strokeColor="@color/black"
+                tools:ignore="VectorRaster" />
         </group>
     </group>
 </vector>
