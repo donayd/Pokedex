@@ -17,6 +17,7 @@ class PokemonViewModel @Inject constructor(
 ) : ViewModel() {
 
     val pokemonModel = MutableLiveData<Pokemon>()
+    val pokemonList = MutableLiveData<List<Pokemon>>()
     val isLoading = MutableLiveData<Boolean>()
 
     fun onCreate() {
@@ -25,8 +26,18 @@ class PokemonViewModel @Inject constructor(
             val pokemons = getPokemonsUseCase()
 
             if (!pokemons.isNullOrEmpty()) {
-                pokemonModel.postValue(pokemons[0])
+                pokemonList.postValue(pokemons)
+                pokemonModel.postValue(pokemons.first())
                 isLoading.postValue(false)
+            }
+        }
+    }
+
+    fun getPokemon(id: Int) {
+        viewModelScope.launch {
+            val pokemons = getPokemonsUseCase()
+            if (!pokemons.isNullOrEmpty()) {
+                pokemonModel.postValue(pokemons[id])
             }
         }
     }

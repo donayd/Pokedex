@@ -3,7 +3,6 @@ package com.pokedex.ui.view
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
 import com.pokedex.databinding.ActivityMainBinding
 import com.pokedex.ui.viewmodel.PokemonViewModel
@@ -21,23 +20,20 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        pokemonViewModel.onCreate()
+        var id = intent.getIntExtra("ID", 24) - 1
+        pokemonViewModel.getPokemon(id)
 
         pokemonViewModel.pokemonModel.observe(this) {
             binding.tvId.text = it.id.toString()
             binding.tvName.text = it.name
-            binding.tvWeight.text = "Weight: ${it.weight} kg"
-            binding.tvHeight.text = "Height: ${it.height} ft"
+            binding.tvWeight.text = "Weight: ${it.weight % 10}kg"
+            binding.tvHeight.text = "Height: ${it.height % 10}m"
 
             Glide.with(this).load(it?.image).into(binding.ivPokemon)
 
         }
 
-        pokemonViewModel.isLoading.observe(this) {
-            binding.progress.isVisible = it
-        }
-
-        binding.viewContainer.setOnClickListener { pokemonViewModel.randomPokemon() }
+        binding.viewContainer.setOnClickListener { pokemonViewModel.getPokemon(id++) }
 
     }
 }

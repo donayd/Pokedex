@@ -9,7 +9,7 @@ import com.pokedex.data.database.entities.PokemonEntity
 @Dao
 interface PokemonDao {
 
-    @Query("SELECT * FROM pokemon_table ORDER BY id DESC")
+    @Query("SELECT * FROM pokemon_table ORDER BY id ASC")
     suspend fun getAllPokemons(): List<PokemonEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

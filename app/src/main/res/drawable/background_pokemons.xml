@@ -1,0 +1,53 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:width="1080dp"
+    android:height="2000dp"
+    android:viewportWidth="1120"
+    android:viewportHeight="2040">
+    <group>
+        <path
+            android:fillColor="@color/red"
+            android:pathData="M0,0h1129v2035h-1129z" />
+        <path
+            android:fillColor="@color/dark_red"
+            android:fillType="evenOdd"
+            android:pathData="M1087,1985 L94.3,1985C64.9,1985 41,1961.1 41,1931.7L41,546 1087,546Z"
+            android:strokeWidth="27.5"
+            android:strokeColor="@color/deep_blue"
+            tools:ignore="VectorRaster" />
+        <path
+            android:fillColor="@color/dark_red"
+            android:fillType="evenOdd"
+            android:pathData="M41,547 L704,543.9 479.1,279 41,279 41,547Z"
+            android:strokeWidth="27.5"
+            android:strokeColor="@color/deep_blue" />
+        <path
+            android:fillColor="@color/dark_red"
+            android:fillType="evenOdd"
+            android:pathData="M830,662 L795,658.9 542.8,393 55,393 55,662Z" />
+        <path
+            android:fillColor="#00000000"
+            android:fillType="evenOdd"
+            android:pathData="M1157.8,531.5 L692.5,531.5"
+            android:strokeWidth="55"
+            android:strokeColor="@color/deep_blue" />
+        <path
+            android:fillColor="#00000000"
+            android:fillType="evenOdd"
+            android:pathData="M492.8,266.5 L0,266.5"
+            android:strokeWidth="55"
+            android:strokeColor="@color/deep_blue" />
+        <path
+            android:fillColor="#00000000"
+            android:fillType="evenOdd"
+            android:pathData="M714,543.3 L473.5,256.5"
+            android:strokeWidth="55"
+            android:strokeColor="@color/deep_blue" />
+        <path
+            android:fillColor="@color/blue"
+            android:fillType="evenOdd"
+            android:pathData="M1039,1912 L190.2,1912 95,1826.8 95,634 1039,634Z"
+            android:strokeWidth="13.75"
+            android:strokeColor="@color/deep_blue" />
+    </group>
+</vector>

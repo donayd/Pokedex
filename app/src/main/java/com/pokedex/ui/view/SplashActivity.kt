@@ -11,7 +11,7 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         screenSplash.setKeepOnScreenCondition { true }
-        startActivity(Intent(this, MainActivity::class.java))
+        startActivity(Intent(this, PokedexActivity::class.java))
         finish()
     }
 }

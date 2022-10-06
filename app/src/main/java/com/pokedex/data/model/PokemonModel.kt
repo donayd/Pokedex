@@ -5,11 +5,27 @@ import com.google.gson.annotations.SerializedName
 class PokemonModel(
     @SerializedName("id") val id: Int,
     @SerializedName("name") val name: String,
-    @SerializedName("sprites") val image: ImageModel,
+    @SerializedName("base_experience") val experience: Int,
     @SerializedName("height") val height: Int,
-    @SerializedName("weight") val weight: Int
+    @SerializedName("weight") val weight: Int,
+    @SerializedName("stats") val stats: List<Stat>,
+    @SerializedName("types") val types: List<TypeResponse>,
+    @SerializedName("sprites") val image: ImageModel
 )
 
-class ImageModel(
+data class Stat(
+    @SerializedName("base_stat") val stat: Int
+)
+
+data class ImageModel(
     @SerializedName("front_default") val url: String
+)
+
+data class TypeResponse(
+    @SerializedName("slot") val slot: Int,
+    @SerializedName("type") val type: Type
+)
+
+data class Type(
+    @SerializedName("name") val name: String
 )

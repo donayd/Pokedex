@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginVertical="4dp"
+    android:elevation="8dp"
+    app:cardCornerRadius="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/dark_blue">
+
+        <ImageView
+            android:id="@+id/ivPokemon"
+            android:layout_width="140dp"
+            android:layout_height="100dp"
+            android:contentDescription="@string/ImageDescription"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </ImageView>
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:fontFamily="@font/console"
+            android:gravity="center"
+            android:text="Pikachu"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/tvWeight"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivPokemon"
+            app:layout_constraintTop_toTopOf="@+id/ivPokemon" />
+
+        <TextView
+            android:id="@+id/tvWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/console"
+            android:gravity="center"
+            android:text="Weight: 0kg"
+            android:textAllCaps="true"
+            android:textColor="@color/yellow"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivPokemon"
+            app:layout_constraintEnd_toEndOf="@+id/tvName"
+            app:layout_constraintStart_toStartOf="@+id/tvName"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvHeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/console"
+            android:gravity="center"
+            android:text="Height: 0ft"
+            android:textAllCaps="true"
+            android:textColor="@color/yellow"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/tvName"
+            app:layout_constraintStart_toStartOf="@+id/tvName"
+            app:layout_constraintTop_toBottomOf="@+id/tvWeight" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
