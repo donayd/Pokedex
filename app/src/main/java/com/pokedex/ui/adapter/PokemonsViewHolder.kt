@@ -14,8 +14,6 @@ class PokemonsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     fun render(pokemon: Pokemon) {
         binding.tvName.text = pokemon.name
-        binding.tvWeight.text = "Weight: ${pokemon.weight % 10}kg"
-        binding.tvHeight.text = "Height: ${pokemon.height % 10}m"
         Glide.with(binding.ivPokemon.context).load(pokemon.image).into(binding.ivPokemon)
 
         itemView.setOnClickListener {

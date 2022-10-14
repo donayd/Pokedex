@@ -1,12 +1,17 @@
 package com.pokedex.ui.view
 
 import android.os.Bundle
+import android.view.animation.AnimationUtils
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
+import com.bumptech.glide.Glide
+import com.google.android.gms.ads.AdRequest
+import com.pokedex.R
 import com.pokedex.databinding.ActivityPokedexBinding
+import com.pokedex.domain.model.Pokemon
 import com.pokedex.ui.adapter.PokemonsAdapter
 import com.pokedex.ui.viewmodel.PokemonViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -15,6 +20,8 @@ import dagger.hilt.android.AndroidEntryPoint
 class PokedexActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityPokedexBinding
+    private lateinit var pokAdapter: PokemonsAdapter
+    private lateinit var pokemonList: List<Pokemon>
 
     private val pokemonViewModel: PokemonViewModel by viewModels()
 
@@ -24,22 +31,67 @@ class PokedexActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         pokemonViewModel.onCreate()
+
         initRecyclerView()
+        initLoadAds()
+        initListeners()
+    }
+
+    private fun initListeners() {
+        val aninFi = AnimationUtils.loadAnimation(this, R.anim.fade_in)
+        val aninFo = AnimationUtils.loadAnimation(this, R.anim.fade_out)
+        val aninZi = AnimationUtils.loadAnimation(this, R.anim.zoom_in)
+
+        Glide.with(this).load(getString(R.string.PikachuUrl)).into(binding.ivPokemon)
+
+        binding.tvName.startAnimation(aninZi)
 
         pokemonViewModel.isLoading.observe(this) {
             binding.animationView.isVisible = it
         }
 
+        binding.btnSearch.setOnClickListener {
+            val isVisible = binding.svPokemonName.isVisible
+            binding.svPokemonName.isVisible = !isVisible
+            binding.svPokemonName.startAnimation(if (isVisible) aninFo else aninFi)
+        }
 
+        binding.svPokemonName.setOnCloseListener {
+            binding.svPokemonName.clearFocus()
+            binding.svPokemonName.isVisible = false
+            binding.svPokemonName.startAnimation(aninFo)
+            false
+        }
+    }
+
+    private fun initLoadAds() {
+        val adRequest = AdRequest.Builder().build()
+        binding.banner.loadAd(adRequest)
     }
 
     private fun initRecyclerView() {
         pokemonViewModel.pokemonList.observe(this) { pokemons ->
-            val manger = LinearLayoutManager(this)
-            val decoration = DividerItemDecoration(this, manger.orientation)
-            binding.rvPokemons.layoutManager = manger
-            binding.rvPokemons.adapter = PokemonsAdapter(pokemons)
-            binding.rvPokemons.addItemDecoration(decoration)
+            pokemonList = pokemons
+            pokAdapter = PokemonsAdapter(pokemonList)
+            binding.rvPokemons.layoutManager = GridLayoutManager(this, 2)
+            binding.rvPokemons.adapter = pokAdapter
+
+            binding.svPokemonName.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    binding.svPokemonName.clearFocus()
+                    return false
+                }
+
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    pokemonList = pokemons.filter { pokemons ->
+                        pokemons.name.startsWith(newText!!)
+                    }
+                    binding.rvPokemons.adapter = PokemonsAdapter(pokemonList)
+                    binding.itemNotFound.isVisible = pokemonList.isEmpty()
+                    return false
+                }
+            })
+
         }
     }
 
