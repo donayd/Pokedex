@@ -20,14 +20,14 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        var id = intent.getIntExtra("ID", 24) - 1
+        var id = intent.getIntExtra("ID", 24)
         pokemonViewModel.getPokemon(id)
 
         pokemonViewModel.pokemonModel.observe(this) {
             binding.tvId.text = it.id.toString()
             binding.tvName.text = it.name
-            binding.tvWeight.text = "Weight: ${it.weight % 10}kg"
-            binding.tvHeight.text = "Height: ${it.height % 10}m"
+            binding.tvWeight.text = "Weight: ${it.weight / 10.0}kg"
+            binding.tvHeight.text = "Height: ${it.height / 10.0}m"
 
             Glide.with(this).load(it?.image).into(binding.ivPokemon)
 

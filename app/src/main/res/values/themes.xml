@@ -4,14 +4,17 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/red</item>
         <item name="colorPrimaryVariant">@color/dark_red</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnPrimary">@color/deep_blue</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/blue</item>
         <item name="colorSecondaryVariant">@color/dark_blue</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+        <!-- text colors -->
+        <item name="android:editTextColor">@color/deep_blue</item>
+        <item name="android:textColorHint">@color/dark_yellow</item>
+        <item name="android:windowContentTransitions">true</item>
     </style>
 
     <!-- Splash theme. -->

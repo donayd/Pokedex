@@ -6,7 +6,7 @@
         android:toAlpha="1.0" />
 
     <scale
-        android:duration="1000"
+        android:duration="400"
         android:fromXScale="0.0"
         android:fromYScale="0.0"
         android:pivotX="50%"

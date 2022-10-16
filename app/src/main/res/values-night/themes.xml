@@ -11,7 +11,10 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+        <!-- text colors -->
+        <item name="android:editTextColor">@color/deep_blue</item>
+        <item name="android:textColorHint">@color/dark_yellow</item>
+        <item name="android:windowContentTransitions">true</item>
     </style>
 
     <!-- Splash theme. -->

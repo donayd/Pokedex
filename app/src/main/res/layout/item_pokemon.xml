@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cvPokemon"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="12dp"
     android:elevation="8dp"
+    android:foreground="?attr/selectableItemBackgroundBorderless"
+    app:cardBackgroundColor="@color/dark_blue"
     app:cardCornerRadius="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/dark_blue">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/ivPokemon"
@@ -20,6 +22,7 @@
             android:contentDescription="@string/ImageDescription"
             android:gravity="center"
             android:src="@drawable/pokeball"
+            android:transitionName="img_pokemon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -37,6 +40,7 @@
             android:textAllCaps="true"
             android:textColor="@color/white"
             android:textSize="20sp"
+            android:transitionName="name_pokemon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
