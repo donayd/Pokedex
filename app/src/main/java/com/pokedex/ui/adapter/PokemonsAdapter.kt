@@ -26,14 +26,8 @@ class PokemonsAdapter(
     }
 
     override fun onBindViewHolder(holder: PokemonsViewHolder, id: Int) {
-        holder.render(pokemonList[id])
+        holder.render(pokemonList[id], onClickListener)
         setAnimation(holder.itemView)
-        holder.itemView.setOnClickListener {
-            onClickListener(
-                id,
-                holder.itemView.findViewById(R.id.ivPokemon)
-            )
-        }
     }
 
     override fun getItemCount(): Int = pokemonList.size

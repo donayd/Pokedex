@@ -9,6 +9,7 @@
         <entry key="..\:/Users/Donayd C/MyApps/MyOwn/Pokedex/app/src/main/res/drawable/bg_recycleview.xml" value="0.2" />
         <entry key="..\:/Users/Donayd C/MyApps/MyOwn/Pokedex/app/src/main/res/drawable/bg_search_btn.xml" value="0.2035" />
         <entry key="..\:/Users/Donayd C/MyApps/MyOwn/Pokedex/app/src/main/res/drawable/bg_search_view.xml" value="0.2005" />
+        <entry key="..\:/Users/Donayd C/MyApps/MyOwn/Pokedex/app/src/main/res/drawable/bg_splash.xml" value="0.10400000000000001" />
         <entry key="..\:/Users/Donayd C/MyApps/MyOwn/Pokedex/app/src/main/res/drawable/ic_launcher_background.xml" value="0.124" />
         <entry key="..\:/Users/Donayd C/MyApps/MyOwn/Pokedex/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.124" />
         <entry key="..\:/Users/Donayd C/MyApps/MyOwn/Pokedex/app/src/main/res/drawable/ic_list_background_2.xml" value="0.2035" />
@@ -16,6 +17,8 @@
         <entry key="..\:/Users/Donayd C/MyApps/MyOwn/Pokedex/app/src/main/res/drawable/splash_background.xml" value="0.1" />
         <entry key="..\:/Users/Donayd C/MyApps/MyOwn/Pokedex/app/src/main/res/layout/activity_main.xml" value="0.19342053111375346" />
         <entry key="..\:/Users/Donayd C/MyApps/MyOwn/Pokedex/app/src/main/res/layout/activity_pokedex.xml" value="0.176" />
+        <entry key="..\:/Users/Donayd C/MyApps/MyOwn/Pokedex/app/src/main/res/layout/fragment_catch.xml" value="0.2" />
+        <entry key="..\:/Users/Donayd C/MyApps/MyOwn/Pokedex/app/src/main/res/layout/fragment_detail.xml" value="0.20863616930312098" />
         <entry key="..\:/Users/Donayd C/MyApps/MyOwn/Pokedex/app/src/main/res/layout/item_pokemon.xml" value="0.4" />
         <entry key="..\:/Users/Donayd C/MyApps/MyOwn/Pokedex/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.109" />
         <entry key="..\:/Users/Donayd C/MyApps/MyOwn/Pokedex/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.124" />

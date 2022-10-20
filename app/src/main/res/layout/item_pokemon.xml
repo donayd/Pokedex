@@ -21,7 +21,7 @@
             android:layout_margin="8dp"
             android:contentDescription="@string/ImageDescription"
             android:gravity="center"
-            android:src="@drawable/pokeball"
+            android:src="@drawable/brand_icon"
             android:transitionName="img_pokemon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
