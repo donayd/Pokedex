@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "844658100094",
+    "project_id": "pokedex-dreammkr-2022",
+    "storage_bucket": "pokedex-dreammkr-2022.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:844658100094:android:aa11e1024436b99e4c952f",
+        "android_client_info": {
+          "package_name": "com.pokedex"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "844658100094-akocsv0cge5kl3vo33qealiur63jhqrn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkgdFlFhivOjdYwMNE6_E1EzZlaThBt3s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "844658100094-akocsv0cge5kl3vo33qealiur63jhqrn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

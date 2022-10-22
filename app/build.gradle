@@ -3,6 +3,8 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
 }
 
 android {
@@ -20,8 +22,16 @@ android {
     }
 
     buildTypes {
+        debug {
+            resValue 'string', 'ADD_ID', '"ca-app-pub-3940256099942544~3347511713"'
+            resValue 'string', 'ADD_UNIT_ID_1', '"ca-app-pub-3940256099942544/6300978111"'
+            resValue 'string', 'ADD_UNIT_ID_2', '"ca-app-pub-3940256099942544/6300978111"'
+        }
         release {
             minifyEnabled false
+            resValue 'string', 'ADD_ID', '"ca-app-pub-2835881623888973~4520877201"'
+            resValue 'string', 'ADD_UNIT_ID_1', '"ca-app-pub-2835881623888973/8851020362"'
+            resValue 'string', 'ADD_UNIT_ID_2', '"ca-app-pub-2835881623888973/7869111188"'
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -45,6 +55,11 @@ dependencies {
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
+    // Firebase
+    implementation platform('com.google.firebase:firebase-bom:31.0.1')
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-config-ktx'
     // Glide - Image Loading
     implementation 'com.github.bumptech.glide:glide:4.13.2'
     annotationProcessor 'com.github.bumptech.glide:glide:4.13.2'

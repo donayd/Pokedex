@@ -5,11 +5,13 @@ import android.transition.TransitionInflater
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.google.android.gms.ads.AdRequest
+import com.pokedex.R
 import com.pokedex.databinding.FragmentDetailBinding
 import com.pokedex.ui.viewmodel.PokemonViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -58,22 +60,49 @@ class DetailFragment : Fragment() {
     }
 
     private fun initListeners() {
+
+        val aninSor = AnimationUtils.loadAnimation(activity, R.anim.slide_out_right)
+        val aninSol = AnimationUtils.loadAnimation(activity, R.anim.slide_out_left)
+        val aninSil = AnimationUtils.loadAnimation(activity, R.anim.slide_in_left)
+
         ViewCompat.setTransitionName(binding.ivPokemon, "pokemon_$pokemonId")
         pokemonViewModel.getPokemon(pokemonId)
 
         pokemonViewModel.pokemonModel.observe(viewLifecycleOwner) {
-            binding.tvId.text = it.id.toString()
+
+            binding.ivPokemon.startAnimation(aninSil)
+
             binding.tvName.text = it.name
             binding.tvWeight.text = "Weight: ${it.weight / 10.0}kg"
             binding.tvHeight.text = "Height: ${it.height / 10.0}m"
+            binding.tvAtk.text = "ATK:\n${it.attack}"
+            binding.tvDef.text = "DEF:\n${it.defense}"
 
             Glide.with(this).load(it?.image).into(binding.ivPokemon)
         }
 
-        /*binding.viewContainer.setOnClickListener {
-            pokemonId = (pokemonId) % 150 + 1
+        binding.btnUp.setOnClickListener {
+            pokemonId = (pokemonId + 159) % 150 + 1
             pokemonViewModel.getPokemon(pokemonId)
-        }*/
+            binding.ivPokemon.startAnimation(aninSor)
+        }
+
+        binding.btnLeft.setOnClickListener {
+            pokemonId = (pokemonId + 148) % 150 + 1
+            pokemonViewModel.getPokemon(pokemonId)
+        }
+
+        binding.btnRight.setOnClickListener {
+            pokemonId = (pokemonId % 150) + 1
+            pokemonViewModel.getPokemon(pokemonId)
+        }
+
+        binding.btnDown.setOnClickListener {
+            pokemonId = (pokemonId + 139) % 150 + 1
+            pokemonViewModel.getPokemon(pokemonId)
+            binding.ivPokemon.startAnimation(aninSol)
+        }
+
     }
 
 

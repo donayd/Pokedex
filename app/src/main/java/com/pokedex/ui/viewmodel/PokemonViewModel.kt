@@ -38,7 +38,7 @@ class PokemonViewModel @Inject constructor(
             val pokemons = getPokemonsUseCase()
             if (!pokemons.isNullOrEmpty()) {
                 val pokemon = pokemons.find { it.id == id }
-                pokemonModel.postValue(pokemon!!)
+                pokemonModel.postValue(pokemon ?: pokemons[0])
             }
         }
     }
