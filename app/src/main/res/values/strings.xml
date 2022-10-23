@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">Pokedex</string>
     <string name="ImageDescription">wallpaper</string>
+
     <string name="PikachuUrl">https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="PikachuUrl2">https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/25.png</string>
+
 </resources>

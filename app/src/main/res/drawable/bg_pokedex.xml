@@ -127,11 +127,11 @@
             android:strokeWidth="13.75"
             android:strokeColor="@color/dark_green" />
         <path
-            android:fillColor="#F98B57"
+            android:fillColor="@color/orange"
             android:fillType="evenOdd"
             android:pathData="M398,1602C398,1587.6 409.6,1576 424,1576L593,1576C607.4,1576 619,1587.6 619,1602L619,1602C619,1616.4 607.4,1628 593,1628L424,1628C409.6,1628 398,1616.4 398,1602Z"
             android:strokeWidth="13.75"
-            android:strokeColor="#C55A11" />
+            android:strokeColor="@color/dark_orange" />
         <path
             android:fillColor="@color/deep_blue"
             android:pathData="M836,1537h104v104h-104z" />

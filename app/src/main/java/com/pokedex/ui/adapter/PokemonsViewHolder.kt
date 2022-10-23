@@ -29,7 +29,7 @@ class PokemonsViewHolder(view: View) :
         itemView.setOnClickListener { onClickListener(pokemon.id, binding.ivPokemon) }
 
         Glide.with(binding.ivPokemon.context)
-            .load(pokemon.image)
+            .load(pokemon.image_front)
             .listener(object : RequestListener<Drawable> {
                 override fun onLoadFailed(
                     e: GlideException?,

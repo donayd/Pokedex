@@ -10,4 +10,7 @@ interface PokemonApiClient {
     @GET("pokemon/{id}")
     suspend fun getPokemon(@Path("id") id: Int): Response<PokemonModel>
 
+    @GET("pokemon-species/{id}")
+    suspend fun getPokemonDescription(@Path("id") id: Int): Response<PokemonModel>
+
 }

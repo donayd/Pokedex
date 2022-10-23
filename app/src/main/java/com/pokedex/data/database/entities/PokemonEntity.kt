@@ -18,10 +18,11 @@ data class PokemonEntity(
     @ColumnInfo(name = "defense") val defense: Int,
     @ColumnInfo(name = "speed") val speed: Int,
     @SerializedName("types") val types: String,
-    @ColumnInfo(name = "image") val image: String,
+    @ColumnInfo(name = "image_front") val image_front: String,
+    @ColumnInfo(name = "image_back") val image_back: String,
 )
 
 fun Pokemon.toDatabase() = PokemonEntity(
     id, name, height, weight, hp, attack,
-    defense, speed, types, image
+    defense, speed, types, image_front, image_back
 )

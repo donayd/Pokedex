@@ -18,7 +18,8 @@ data class Stat(
 )
 
 data class ImageModel(
-    @SerializedName("front_default") val url: String
+    @SerializedName("front_default") val url_front: String,
+    @SerializedName("back_default") val url_back: String
 )
 
 data class TypeResponse(

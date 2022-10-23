@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.core.view.ViewCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
@@ -26,6 +27,9 @@ class DetailFragment : Fragment() {
     private lateinit var binding: FragmentDetailBinding
 
     private val pokemonViewModel: PokemonViewModel by viewModels()
+
+    private lateinit var images_url: List<String>
+    private var flip = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,44 +67,75 @@ class DetailFragment : Fragment() {
 
         val aninSor = AnimationUtils.loadAnimation(activity, R.anim.slide_out_right)
         val aninSol = AnimationUtils.loadAnimation(activity, R.anim.slide_out_left)
+        val aninSir = AnimationUtils.loadAnimation(activity, R.anim.slide_in_right)
         val aninSil = AnimationUtils.loadAnimation(activity, R.anim.slide_in_left)
+
+        val aninSou = AnimationUtils.loadAnimation(activity, R.anim.slide_out_up)
+        val aninSod = AnimationUtils.loadAnimation(activity, R.anim.slide_out_down)
+        val aninSiu = AnimationUtils.loadAnimation(activity, R.anim.slide_in_up)
+        val aninSid = AnimationUtils.loadAnimation(activity, R.anim.slide_in_down)
 
         ViewCompat.setTransitionName(binding.ivPokemon, "pokemon_$pokemonId")
         pokemonViewModel.getPokemon(pokemonId)
 
         pokemonViewModel.pokemonModel.observe(viewLifecycleOwner) {
 
-            binding.ivPokemon.startAnimation(aninSil)
-
             binding.tvName.text = it.name
-            binding.tvWeight.text = "Weight: ${it.weight / 10.0}kg"
-            binding.tvHeight.text = "Height: ${it.height / 10.0}m"
+            binding.tvHeight.text = "HT:\n${it.height / 10.0}m"
+            binding.tvWeight.text = "WT:\n${it.weight / 10.0}kg"
+            binding.tvHp.text = "HP:\n${it.hp}"
             binding.tvAtk.text = "ATK:\n${it.attack}"
             binding.tvDef.text = "DEF:\n${it.defense}"
+            binding.tvType.text = "Type:\n${it.types}"
 
-            Glide.with(this).load(it?.image).into(binding.ivPokemon)
+            images_url = listOf(it.image_front, it.image_back)
+
+            Glide.with(this).load(images_url[0]).into(binding.ivPokemon)
+        }
+
+        binding.btnDetail.setOnClickListener {
+            Glide.with(this).load(
+                if (flip) images_url[1] else images_url[0]
+            ).into(binding.ivPokemon)
+            flip = !flip
         }
 
         binding.btnUp.setOnClickListener {
-            pokemonId = (pokemonId + 159) % 150 + 1
-            pokemonViewModel.getPokemon(pokemonId)
-            binding.ivPokemon.startAnimation(aninSor)
+            if(!binding.clImage.isVisible){
+                binding.clImage.isVisible = true
+                binding.clDetails.isVisible = false
+                binding.clImage.startAnimation(aninSiu)
+                binding.clDetails.startAnimation(aninSod)
+            }
+        }
+
+        binding.btnDown.setOnClickListener {
+            if(binding.clImage.isVisible) {
+                binding.clImage.isVisible = false
+                binding.clDetails.isVisible = true
+                binding.clImage.startAnimation(aninSou)
+                binding.clDetails.startAnimation(aninSid)
+            }
         }
 
         binding.btnLeft.setOnClickListener {
             pokemonId = (pokemonId + 148) % 150 + 1
             pokemonViewModel.getPokemon(pokemonId)
+            if (binding.clImage.isVisible) {
+                binding.clImage.startAnimation(aninSil)
+            } else {
+                binding.clDetails.startAnimation(aninSil)
+            }
         }
 
         binding.btnRight.setOnClickListener {
             pokemonId = (pokemonId % 150) + 1
             pokemonViewModel.getPokemon(pokemonId)
-        }
-
-        binding.btnDown.setOnClickListener {
-            pokemonId = (pokemonId + 139) % 150 + 1
-            pokemonViewModel.getPokemon(pokemonId)
-            binding.ivPokemon.startAnimation(aninSol)
+            if (binding.clImage.isVisible) {
+                binding.clImage.startAnimation(aninSir)
+            } else {
+                binding.clDetails.startAnimation(aninSir)
+            }
         }
 
     }

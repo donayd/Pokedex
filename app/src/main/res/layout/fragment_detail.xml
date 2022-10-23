@@ -40,74 +40,156 @@
             app:layout_constraintTop_toTopOf="@+id/ivBackground"
             app:layout_constraintVertical_bias="0.092" />
 
-        <TextView
-            android:id="@+id/tvName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/console"
-            android:gravity="center"
-            android:padding="16dp"
-            android:textAllCaps="true"
-            android:textColor="@color/deep_blue"
-            android:textSize="24sp"
-            android:transitionName="name_pokemon"
-            app:layout_constraintLeft_toLeftOf="@+id/ivPokemon"
-            app:layout_constraintRight_toRightOf="@+id/ivPokemon"
-            app:layout_constraintTop_toTopOf="@+id/ivPokemon"
-            tools:text="Pikachu" />
-
-        <TextView
-            android:id="@+id/tvAtk"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:fontFamily="@font/console"
-            android:gravity="center"
-            android:padding="2dp"
-            android:textColor="@color/red"
-            android:textSize="18sp"
-            ads:layout_constraintEnd_toEndOf="@+id/ivBackground"
-            ads:layout_constraintStart_toStartOf="@+id/ivBackground"
-            ads:layout_constraintTop_toTopOf="@+id/tvName"
-            app:layout_constraintHorizontal_bias="0.75"
-            android:text="ATK:\n 180" />
-
-        <TextView
-            android:id="@+id/tvDef"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/console"
-            android:gravity="center"
-            android:padding="2dp"
-            android:textColor="@color/dark_green"
-            android:textSize="18sp"
-            ads:layout_constraintBottom_toBottomOf="@+id/ivPokemon"
-            ads:layout_constraintEnd_toEndOf="@+id/ivBackground"
-            ads:layout_constraintStart_toStartOf="@+id/ivBackground"
-            ads:layout_constraintTop_toTopOf="@+id/tvName"
-            ads:layout_constraintVertical_bias="0.6"
-            app:layout_constraintHorizontal_bias="0.75"
-            android:text="DEF:\n 180" />
-
-        <ImageView
-            android:id="@+id/ivPokemon"
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="240dp"
-            android:layout_height="210dp"
-            android:contentDescription="@string/ImageDescription"
-            android:gravity="center"
-            android:padding="30dp"
-            android:transitionName="img_pokemon"
+            android:layout_height="160dp"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="@+id/ivBackground"
-            app:layout_constraintHorizontal_bias="0.3"
-            app:layout_constraintLeft_toLeftOf="@+id/ivBackground"
-            app:layout_constraintRight_toRightOf="@+id/ivBackground"
+            app:layout_constraintEnd_toEndOf="@+id/ivBackground"
+            app:layout_constraintStart_toStartOf="@+id/ivBackground"
             app:layout_constraintTop_toTopOf="@+id/ivBackground"
-            app:layout_constraintVertical_bias="0.485">
+            app:layout_constraintVertical_bias="0.46">
 
-        </ImageView>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/console"
+                    android:gravity="center"
+                    android:paddingTop="8dp"
+                    android:textAllCaps="true"
+                    android:textColor="@color/deep_blue"
+                    android:textSize="24sp"
+                    android:transitionName="name_pokemon"
+                    app:layout_constraintLeft_toLeftOf="@+id/ivPokemon"
+                    app:layout_constraintRight_toRightOf="@+id/ivPokemon"
+                    app:layout_constraintTop_toTopOf="@+id/ivPokemon"
+                    tools:text="Pikachu" />
+
+                <ImageView
+                    android:id="@+id/ivPokemon"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/ImageDescription"
+                    android:gravity="center"
+                    android:paddingTop="24dp"
+                    android:transitionName="img_pokemon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                </ImageView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clDetails"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tvHp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/console"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="Hp:\n100"
+                    android:textColor="@color/red"
+                    android:textSize="18sp"
+                    ads:layout_constraintBottom_toBottomOf="@+id/tvAtk"
+                    ads:layout_constraintEnd_toStartOf="@+id/tvAtk"
+                    ads:layout_constraintStart_toStartOf="parent"
+                    ads:layout_constraintTop_toTopOf="@+id/tvAtk" />
+
+                <TextView
+                    android:id="@+id/tvAtk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/console"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="ATK:\n100"
+                    android:textColor="@color/dark_yellow"
+                    android:textSize="18sp"
+                    ads:layout_constraintBottom_toBottomOf="parent"
+                    ads:layout_constraintEnd_toEndOf="parent"
+                    ads:layout_constraintStart_toStartOf="parent"
+                    ads:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.2" />
+
+                <TextView
+                    android:id="@+id/tvDef"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/console"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="DEF:\n100"
+                    android:textColor="@color/dark_green"
+                    android:textSize="18sp"
+                    ads:layout_constraintBottom_toBottomOf="@+id/tvAtk"
+                    ads:layout_constraintEnd_toEndOf="parent"
+                    ads:layout_constraintStart_toEndOf="@+id/tvAtk"
+                    ads:layout_constraintTop_toTopOf="@+id/tvAtk" />
+
+                <TextView
+                    android:id="@+id/tvHeight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/console"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="HT:\n100m"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="18sp"
+                    ads:layout_constraintEnd_toStartOf="@+id/tvAtk"
+                    ads:layout_constraintStart_toStartOf="@+id/tvHp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.8" />
+
+                <TextView
+                    android:id="@+id/tvWeight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/console"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="WT:\n100kg"
+                    android:textColor="@color/orange"
+                    android:textSize="18sp"
+                    ads:layout_constraintBottom_toBottomOf="parent"
+                    ads:layout_constraintEnd_toEndOf="@+id/tvDef"
+                    ads:layout_constraintStart_toEndOf="@+id/tvAtk"
+                    ads:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.8" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <View
+            android:id="@+id/btnDetail"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivBackground"
+            app:layout_constraintEnd_toEndOf="@+id/ivBackground"
+            app:layout_constraintHorizontal_bias="0.135"
+            app:layout_constraintStart_toStartOf="@+id/ivBackground"
+            app:layout_constraintTop_toTopOf="@+id/ivBackground"
+            app:layout_constraintVertical_bias="0.785" />
 
         <TextView
-            android:id="@+id/tvWeight"
+            android:id="@+id/tvType"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/console"
@@ -120,64 +202,51 @@
             app:layout_constraintHorizontal_bias="0.1"
             app:layout_constraintStart_toStartOf="@+id/ivBackground"
             app:layout_constraintTop_toTopOf="@+id/ivBackground"
-            app:layout_constraintVertical_bias="0.89"
-            tools:text="Weight: 0kg" />
+            app:layout_constraintVertical_bias="0.92"
+            tools:text="Type:\nElectric" />
 
-        <TextView
-            android:id="@+id/tvHeight"
-            android:layout_width="240dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/console"
-            android:gravity="center"
-            android:padding="2dp"
-            android:textColor="@color/deep_blue"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/tvWeight"
-            app:layout_constraintStart_toStartOf="@+id/tvWeight"
-            app:layout_constraintTop_toBottomOf="@+id/tvWeight"
-            tools:text="Height: 0m" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="120dp"
             android:layout_height="120dp"
-            ads:layout_constraintBottom_toBottomOf="@+id/ivBackground"
-            ads:layout_constraintEnd_toEndOf="parent"
-            ads:layout_constraintStart_toStartOf="@+id/ivBackground"
-            ads:layout_constraintTop_toTopOf="@+id/ivBackground"
+            app:layout_constraintBottom_toBottomOf="@+id/ivBackground"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.91"
+            app:layout_constraintStart_toStartOf="@+id/ivBackground"
+            app:layout_constraintTop_toTopOf="@+id/ivBackground"
             app:layout_constraintVertical_bias="0.89">
 
             <View
                 android:id="@+id/btnUp"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                ads:layout_constraintEnd_toEndOf="parent"
-                ads:layout_constraintStart_toStartOf="parent"
-                ads:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <View
                 android:id="@+id/btnLeft"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                ads:layout_constraintBottom_toBottomOf="parent"
-                ads:layout_constraintStart_toStartOf="parent"
-                ads:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <View
                 android:id="@+id/btnRight"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                ads:layout_constraintBottom_toBottomOf="parent"
-                ads:layout_constraintEnd_toEndOf="parent"
-                ads:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <View
                 android:id="@+id/btnDown"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                ads:layout_constraintBottom_toBottomOf="parent"
-                ads:layout_constraintEnd_toEndOf="parent"
-                ads:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
