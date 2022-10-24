@@ -1,8 +1,23 @@
 <resources>
     <string name="app_name">Pokedex</string>
-    <string name="ImageDescription">wallpaper</string>
+    <string name="image_description">wallpaper</string>
 
-    <string name="PikachuUrl">https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png</string>
-    <string name="PikachuUrl2">https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/25.png</string>
+    // Splash Screen
+    <string name="update_app">Por favor actualiza la Pokedex en la tienda</string>
+
+    // Item example
+    <string name="pokemon_name">Pikachu</string>
+
+    // Catch Screen
+    <string name="not_found">Pokemon\n not found</string>
+    <string name="loading">Cargando…</string>
+
+    // Detail Screen
+    <string name="detail_hp">HP:\n100</string>
+    <string name="detail_atk">ATK:\n100</string>
+    <string name="detail_def">DEF:\n100</string>
+    <string name="detail_ht">HT:\n100m</string>
+    <string name="detail_wt">WT:\n100kg</string>
+
 
 </resources>

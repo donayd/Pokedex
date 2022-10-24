@@ -4,18 +4,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AnimationUtils
 import androidx.appcompat.widget.SearchView
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import com.bumptech.glide.Glide
 import com.google.android.gms.ads.AdRequest
 import com.pokedex.R
+import com.pokedex.core.animateThis
+import com.pokedex.core.toggleVisibility
 import com.pokedex.databinding.FragmentCatchBinding
 import com.pokedex.domain.model.Pokemon
 import com.pokedex.ui.adapter.PokemonsAdapter
@@ -73,7 +72,7 @@ class CatchFragment : Fragment() {
                         pokemons.name.lowercase().contains(newText!!.lowercase())
                     }
                     pokAdapter.updatePokemons(pokemonList)
-                    binding.itemNotFound.isVisible = pokemonList.isEmpty()
+                    binding.lyInfo.isVisible = pokemonList.isEmpty()
                     return false
                 }
             })
@@ -82,11 +81,10 @@ class CatchFragment : Fragment() {
     }
 
     private fun onItemSelected(id: Int, sharedView: View) {
-        val extras = FragmentNavigatorExtras(sharedView to "pokemon_$id")
-        val bundle = bundleOf(POKEMON_ID to id)
+        // val extras = FragmentNavigatorExtras(sharedView to "pokemon_$id")
         findNavController().navigate(
             R.id.action_catchFragment_to_detailFragment,
-            bundle,
+            bundleOf(POKEMON_ID to id),
             null,
             null
         )
@@ -100,28 +98,23 @@ class CatchFragment : Fragment() {
     }
 
     private fun initListeners() {
-        val aninFi = AnimationUtils.loadAnimation(activity, R.anim.fade_in)
-        val aninFo = AnimationUtils.loadAnimation(activity, R.anim.fade_out)
-        val aninZi = AnimationUtils.loadAnimation(activity, R.anim.zoom_in)
-
-        Glide.with(this).load(getString(R.string.PikachuUrl)).into(binding.ivPokemon)
-
-        binding.tvName.startAnimation(aninZi)
+        binding.tvName.animateThis(R.anim.zoom_in)
 
         pokemonViewModel.isLoading.observe(viewLifecycleOwner) {
-            binding.animationView.isVisible = it
+            binding.lyLoading.isVisible = it
         }
 
         binding.btnSearch.setOnClickListener {
-            val isVisible = binding.svPokemonName.isVisible
-            binding.svPokemonName.isVisible = !isVisible
-            binding.svPokemonName.startAnimation(if (isVisible) aninFo else aninFi)
+            binding.svPokemonName.toggleVisibility()
+            binding.svPokemonName.animateThis(
+                if (!binding.svPokemonName.isVisible) R.anim.fade_out else R.anim.fade_in
+            )
         }
 
         binding.svPokemonName.setOnCloseListener {
             binding.svPokemonName.clearFocus()
-            binding.svPokemonName.isVisible = false
-            binding.svPokemonName.startAnimation(aninFo)
+            binding.svPokemonName.visibility = View.GONE
+            binding.svPokemonName.animateThis(R.anim.fade_out)
             false
         }
     }

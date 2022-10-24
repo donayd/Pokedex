@@ -18,13 +18,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
-            android:contentDescription="@string/ImageDescription"
             android:src="@drawable/bg_recycleview"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.4" />
+            app:layout_constraintVertical_bias="0.4"
+            tools:ignore="ImageContrastCheck" />
 
         <androidx.appcompat.widget.SearchView
             android:id="@+id/svPokemonName"
@@ -46,18 +46,20 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/console"
             android:gravity="center"
-            android:text="POKEDEX"
+            android:text="@string/app_name"
             android:textColor="@color/white"
             android:textSize="64sp"
             app:layout_constraintEnd_toEndOf="@+id/ivBackground"
             app:layout_constraintStart_toStartOf="@+id/ivBackground"
-            app:layout_constraintTop_toTopOf="@+id/ivBackground" />
+            app:layout_constraintTop_toTopOf="@+id/ivBackground"
+            tools:ignore="TextContrastCheck" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <ImageButton
             android:id="@+id/btnSearch"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:background="@drawable/search"
+            android:contentDescription="@string/image_description"
             ads:layout_constraintBottom_toBottomOf="@+id/ivBackground"
             app:layout_constraintEnd_toEndOf="@+id/ivBackground"
             app:layout_constraintHorizontal_bias="0.82"
@@ -77,7 +79,7 @@
             tools:listitem="@layout/item_pokemon" />
 
         <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/itemNotFound"
+            android:id="@+id/lyInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -90,31 +92,55 @@
             app:layout_constraintVertical_bias="0.64">
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/ivPokemon"
+                android:id="@+id/ivNotFound"
                 android:layout_width="140dp"
                 android:layout_height="100dp"
                 android:layout_margin="8dp"
-                android:contentDescription="@string/ImageDescription"
                 android:gravity="center"
-                android:src="@drawable/brand_icon" />
-
-            <com.airbnb.lottie.LottieAnimationView
-                android:id="@+id/animationView"
-                android:layout_width="160dp"
-                android:layout_height="160dp"
-                android:visibility="gone"
-                app:lottie_autoPlay="true"
-                app:lottie_loop="true"
-                app:lottie_rawRes="@raw/pokeball" />
+                android:src="@drawable/pikachu" />
 
             <TextView
-                android:id="@+id/tvNotFound"
+                android:id="@+id/tvInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:fontFamily="@font/console"
                 android:gravity="center"
-                android:text="Pokemon\n not found"
+                android:text="@string/not_found"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/lyLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/ivBackground"
+            app:layout_constraintEnd_toEndOf="@+id/ivBackground"
+            app:layout_constraintStart_toStartOf="@+id/ivBackground"
+            app:layout_constraintTop_toTopOf="@+id/ivBackground"
+            app:layout_constraintVertical_bias="0.64">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/avLoading"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/pokeball" />
+
+            <TextView
+                android:id="@+id/tvLoading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/console"
+                android:gravity="center"
+                android:paddingTop="16dp"
+                android:text="@string/loading"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
 

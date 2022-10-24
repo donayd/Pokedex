@@ -1,5 +1,6 @@
 package com.pokedex.core
 
+import android.annotation.SuppressLint
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import com.google.firebase.remoteconfig.ktx.remoteConfig
@@ -9,6 +10,7 @@ object RemoteConfig {
 
     private const val REMOTE_VERSION = "ReleaseVersion"
 
+    @SuppressLint("StaticFieldLeak")
     private lateinit var remoteConfig: FirebaseRemoteConfig
 
     private var DEFAULTS: HashMap<String, Any> =

@@ -5,14 +5,14 @@ import android.transition.TransitionInflater
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AnimationUtils
 import androidx.core.view.ViewCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.bumptech.glide.Glide
 import com.google.android.gms.ads.AdRequest
 import com.pokedex.R
+import com.pokedex.core.animateThis
+import com.pokedex.core.load
 import com.pokedex.databinding.FragmentDetailBinding
 import com.pokedex.ui.viewmodel.PokemonViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -28,7 +28,7 @@ class DetailFragment : Fragment() {
 
     private val pokemonViewModel: PokemonViewModel by viewModels()
 
-    private lateinit var images_url: List<String>
+    private lateinit var imagesUrl: List<String>
     private var flip = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -65,16 +65,6 @@ class DetailFragment : Fragment() {
 
     private fun initListeners() {
 
-        val aninSor = AnimationUtils.loadAnimation(activity, R.anim.slide_out_right)
-        val aninSol = AnimationUtils.loadAnimation(activity, R.anim.slide_out_left)
-        val aninSir = AnimationUtils.loadAnimation(activity, R.anim.slide_in_right)
-        val aninSil = AnimationUtils.loadAnimation(activity, R.anim.slide_in_left)
-
-        val aninSou = AnimationUtils.loadAnimation(activity, R.anim.slide_out_up)
-        val aninSod = AnimationUtils.loadAnimation(activity, R.anim.slide_out_down)
-        val aninSiu = AnimationUtils.loadAnimation(activity, R.anim.slide_in_up)
-        val aninSid = AnimationUtils.loadAnimation(activity, R.anim.slide_in_down)
-
         ViewCompat.setTransitionName(binding.ivPokemon, "pokemon_$pokemonId")
         pokemonViewModel.getPokemon(pokemonId)
 
@@ -88,33 +78,30 @@ class DetailFragment : Fragment() {
             binding.tvDef.text = "DEF:\n${it.defense}"
             binding.tvType.text = "Type:\n${it.types}"
 
-            images_url = listOf(it.image_front, it.image_back)
-
-            Glide.with(this).load(images_url[0]).into(binding.ivPokemon)
+            imagesUrl = listOf(it.image_front, it.image_back)
+            binding.ivPokemon.load(imagesUrl[0])
         }
 
         binding.btnDetail.setOnClickListener {
-            Glide.with(this).load(
-                if (flip) images_url[1] else images_url[0]
-            ).into(binding.ivPokemon)
+            binding.ivPokemon.load(imagesUrl[if (flip) 1 else 0])
             flip = !flip
         }
 
         binding.btnUp.setOnClickListener {
-            if(!binding.clImage.isVisible){
+            if (!binding.clImage.isVisible) {
                 binding.clImage.isVisible = true
                 binding.clDetails.isVisible = false
-                binding.clImage.startAnimation(aninSiu)
-                binding.clDetails.startAnimation(aninSod)
+                binding.clImage.animateThis(R.anim.slide_in_up)
+                binding.clDetails.animateThis(R.anim.slide_out_down)
             }
         }
 
         binding.btnDown.setOnClickListener {
-            if(binding.clImage.isVisible) {
+            if (binding.clImage.isVisible) {
                 binding.clImage.isVisible = false
                 binding.clDetails.isVisible = true
-                binding.clImage.startAnimation(aninSou)
-                binding.clDetails.startAnimation(aninSid)
+                binding.clImage.animateThis(R.anim.slide_out_up)
+                binding.clDetails.animateThis(R.anim.slide_in_down)
             }
         }
 
@@ -122,9 +109,9 @@ class DetailFragment : Fragment() {
             pokemonId = (pokemonId + 148) % 150 + 1
             pokemonViewModel.getPokemon(pokemonId)
             if (binding.clImage.isVisible) {
-                binding.clImage.startAnimation(aninSil)
+                binding.clImage.animateThis(R.anim.slide_in_left)
             } else {
-                binding.clDetails.startAnimation(aninSil)
+                binding.clDetails.animateThis(R.anim.slide_in_left)
             }
         }
 
@@ -132,9 +119,9 @@ class DetailFragment : Fragment() {
             pokemonId = (pokemonId % 150) + 1
             pokemonViewModel.getPokemon(pokemonId)
             if (binding.clImage.isVisible) {
-                binding.clImage.startAnimation(aninSir)
+                binding.clImage.animateThis(R.anim.slide_in_right)
             } else {
-                binding.clDetails.startAnimation(aninSir)
+                binding.clDetails.animateThis(R.anim.slide_in_right)
             }
         }
 

@@ -3,7 +3,8 @@
     android:width="1080dp"
     android:height="2000dp"
     android:viewportWidth="1120"
-    android:viewportHeight="2040">
+    android:viewportHeight="2040"
+    tools:ignore="VectorRaster">
     <group>
         <path
             android:fillColor="@color/red"
@@ -95,7 +96,7 @@
             android:strokeWidth="20.625"
             android:strokeColor="#0AAECA" />
         <path
-            android:fillColor="#FC1A5A"
+            android:fillColor="@color/red"
             android:fillType="evenOdd"
             android:pathData="M314,1267C314,1245.5 331.5,1228 353,1228 374.5,1228 392,1245.5 392,1267 392,1288.5 374.5,1306 353,1306 331.5,1306 314,1288.5 314,1267Z"
             android:strokeWidth="13.75"

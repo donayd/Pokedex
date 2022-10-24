@@ -14,12 +14,12 @@
         android:background="@color/red"
         tools:context=".ui.view.MainActivity">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivBackground"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
-            android:contentDescription="@string/ImageDescription"
+            android:contentDescription="@string/image_description"
             android:src="@drawable/bg_pokedex"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -65,26 +65,26 @@
                     android:textAllCaps="true"
                     android:textColor="@color/deep_blue"
                     android:textSize="24sp"
-                    android:transitionName="name_pokemon"
                     app:layout_constraintLeft_toLeftOf="@+id/ivPokemon"
                     app:layout_constraintRight_toRightOf="@+id/ivPokemon"
                     app:layout_constraintTop_toTopOf="@+id/ivPokemon"
                     tools:text="Pikachu" />
 
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ivPokemon"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:contentDescription="@string/ImageDescription"
+                    android:contentDescription="@string/image_description"
                     android:gravity="center"
                     android:paddingTop="24dp"
+                    android:src="@drawable/pikachu"
                     android:transitionName="img_pokemon"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                </ImageView>
+                </androidx.appcompat.widget.AppCompatImageView>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -101,7 +101,7 @@
                     android:fontFamily="@font/console"
                     android:gravity="center"
                     android:padding="2dp"
-                    android:text="Hp:\n100"
+                    android:text="@string/detail_hp"
                     android:textColor="@color/red"
                     android:textSize="18sp"
                     ads:layout_constraintBottom_toBottomOf="@+id/tvAtk"
@@ -116,7 +116,7 @@
                     android:fontFamily="@font/console"
                     android:gravity="center"
                     android:padding="2dp"
-                    android:text="ATK:\n100"
+                    android:text="@string/detail_atk"
                     android:textColor="@color/dark_yellow"
                     android:textSize="18sp"
                     ads:layout_constraintBottom_toBottomOf="parent"
@@ -132,7 +132,7 @@
                     android:fontFamily="@font/console"
                     android:gravity="center"
                     android:padding="2dp"
-                    android:text="DEF:\n100"
+                    android:text="@string/detail_def"
                     android:textColor="@color/dark_green"
                     android:textSize="18sp"
                     ads:layout_constraintBottom_toBottomOf="@+id/tvAtk"
@@ -147,7 +147,7 @@
                     android:fontFamily="@font/console"
                     android:gravity="center"
                     android:padding="2dp"
-                    android:text="HT:\n100m"
+                    android:text="@string/detail_ht"
                     android:textColor="@color/dark_blue"
                     android:textSize="18sp"
                     ads:layout_constraintEnd_toStartOf="@+id/tvAtk"
@@ -163,7 +163,7 @@
                     android:fontFamily="@font/console"
                     android:gravity="center"
                     android:padding="2dp"
-                    android:text="WT:\n100kg"
+                    android:text="@string/detail_wt"
                     android:textColor="@color/orange"
                     android:textSize="18sp"
                     ads:layout_constraintBottom_toBottomOf="parent"
@@ -203,6 +203,7 @@
             app:layout_constraintStart_toStartOf="@+id/ivBackground"
             app:layout_constraintTop_toTopOf="@+id/ivBackground"
             app:layout_constraintVertical_bias="0.92"
+            tools:ignore="TextContrastCheck"
             tools:text="Type:\nElectric" />
 
 
@@ -210,7 +211,7 @@
             android:layout_width="120dp"
             android:layout_height="120dp"
             app:layout_constraintBottom_toBottomOf="@+id/ivBackground"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/ivBackground"
             app:layout_constraintHorizontal_bias="0.91"
             app:layout_constraintStart_toStartOf="@+id/ivBackground"
             app:layout_constraintTop_toTopOf="@+id/ivBackground"

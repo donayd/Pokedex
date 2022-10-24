@@ -6,11 +6,11 @@
     <group>
         <clip-path android:pathData="M0,0h476v230h-476z" />
         <path
-            android:fillColor="#F9EE5E"
+            android:fillColor="@color/yellow"
             android:fillType="evenOdd"
             android:pathData="M462,22 L30,24.16 183,208 462,208 462,22Z"
             android:strokeWidth="20"
-            android:strokeColor="#FFC000" />
+            android:strokeColor="@color/dark_yellow" />
         <group>
             <clip-path android:pathData="M183,0h231v231h-231z" />
             <group>

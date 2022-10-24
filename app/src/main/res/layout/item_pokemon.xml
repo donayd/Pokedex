@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cvPokemon"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -19,9 +20,9 @@
             android:layout_width="140dp"
             android:layout_height="100dp"
             android:layout_margin="8dp"
-            android:contentDescription="@string/ImageDescription"
+            android:contentDescription="@string/image_description"
             android:gravity="center"
-            android:src="@drawable/brand_icon"
+            android:src="@drawable/pikachu"
             android:transitionName="img_pokemon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -36,15 +37,14 @@
             android:layout_margin="4dp"
             android:fontFamily="@font/console"
             android:gravity="center"
-            android:text="Pikachu"
             android:textAllCaps="true"
             android:textColor="@color/white"
-            android:textSize="20sp"
-            android:transitionName="name_pokemon"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivPokemon" />
+            app:layout_constraintTop_toBottomOf="@+id/ivPokemon"
+            tools:text="@string/pokemon_name" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
