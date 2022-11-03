@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Pokedex</string>
+    <string name="app_name">Retro Pokedex</string>
     <string name="image_description">wallpaper</string>
 
     // Splash Screen
@@ -9,6 +9,7 @@
     <string name="pokemon_name">Pikachu</string>
 
     // Catch Screen
+    <string name="tittle">Pokedex</string>
     <string name="not_found">Pokemon\n not found</string>
     <string name="loading">Cargando…</string>
 

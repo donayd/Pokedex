@@ -12,7 +12,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.pokedex"
+        applicationId "com.dreammkr.pokedex"
         minSdkVersion 24
         targetSdkVersion 33
         versionCode 1

@@ -5,14 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.view.DetailFragment">
+    tools:context="com.dreammkr.pokedex.ui.view.DetailFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/viewContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/red"
-        tools:context=".ui.view.MainActivity">
+        tools:context="com.dreammkr.pokedex.ui.view.MainActivity">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivBackground"

@@ -6,7 +6,7 @@
     app:startDestination="@id/catchFragment">
     <fragment
         android:id="@+id/catchFragment"
-        android:name="com.pokedex.ui.view.CatchFragment"
+        android:name="com.dreammkr.pokedex.ui.view.CatchFragment"
         android:label="fragment_catch"
         tools:layout="@layout/fragment_catch">
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.pokedex.ui.view.DetailFragment"
+        android:name="com.dreammkr.pokedex.ui.view.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail">
         <action
