@@ -8,6 +8,7 @@
 
 <p align="center">  
 Pokedex Retro para mostrar todos los atributos de los primeros Pokémon usando esta API:
+</br>
 https://pokeapi.co/api/v2/
 </p>
 
