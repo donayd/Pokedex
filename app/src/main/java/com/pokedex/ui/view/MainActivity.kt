@@ -5,7 +5,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
-import com.pokedex.databinding.ActivityMainBinding
+import com.dreammkr.pokedex.databinding.ActivityMainBinding
 import com.pokedex.ui.viewmodel.PokemonViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -30,7 +30,6 @@ class MainActivity : AppCompatActivity() {
             binding.tvHeight.text = "Height: ${it.height} ft"
 
             Glide.with(this).load(it?.image).into(binding.ivPokemon)
-
         }
 
         pokemonViewModel.isLoading.observe(this) {
