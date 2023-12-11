@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Retro Pokedex</string>
+    <string name="app_name">Retrodex</string>
     <string name="image_description">wallpaper</string>
 
     // Splash Screen
@@ -9,8 +9,8 @@
     <string name="pokemon_name">Pikachu</string>
 
     // Catch Screen
-    <string name="tittle">Pokedex</string>
-    <string name="not_found">Pokemon\n not found</string>
+    <string name="tittle">Retrodex</string>
+    <string name="not_found">Pokemon\n no encontrado</string>
     <string name="loading">Cargando…</string>
 
     // Detail Screen
@@ -20,5 +20,6 @@
     <string name="detail_ht">HT:\n100m</string>
     <string name="detail_wt">WT:\n100kg</string>
 
+    <string name="ADD_ID" />
 
 </resources>
