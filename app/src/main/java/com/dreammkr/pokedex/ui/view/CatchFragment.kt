@@ -11,14 +11,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import com.dreammkr.pokedex.R
 import com.dreammkr.pokedex.core.animateThis
 import com.dreammkr.pokedex.core.toggleVisibility
+import com.dreammkr.pokedex.databinding.FragmentCatchBinding
 import com.dreammkr.pokedex.domain.model.Pokemon
 import com.dreammkr.pokedex.ui.adapter.PokemonsAdapter
 import com.dreammkr.pokedex.ui.viewmodel.PokemonViewModel
-import com.google.android.gms.ads.AdRequest
-import com.dreammkr.pokedex.R
-import com.dreammkr.pokedex.databinding.FragmentCatchBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -93,8 +92,8 @@ class CatchFragment : Fragment() {
     }
 
     private fun initLoadAds() {
-        val adRequest = AdRequest.Builder().build()
-        binding.banner.loadAd(adRequest)
+        /*val adRequest = AdRequest.Builder().build()
+        binding.banner.loadAd(adRequest)*/
     }
 
     private fun initListeners() {

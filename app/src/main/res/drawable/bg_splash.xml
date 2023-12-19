@@ -11,12 +11,4 @@
         <bitmap android:src="@drawable/brand_icon" />
     </item>
 
-    <item
-        android:bottom="240dp"
-        android:left="64dp"
-        android:right="64dp"
-        android:top="580dp">
-        <bitmap android:src="@drawable/brand_name" />
-    </item>
-
 </layer-list>

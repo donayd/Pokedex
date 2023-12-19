@@ -9,7 +9,6 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.google.android.gms.ads.AdRequest
 import com.dreammkr.pokedex.R
 import com.dreammkr.pokedex.core.animateThis
 import com.dreammkr.pokedex.core.load
@@ -59,8 +58,8 @@ class DetailFragment : Fragment() {
     }
 
     private fun initLoadAds() {
-        val adRequest = AdRequest.Builder().build()
-        binding.banner.loadAd(adRequest)
+        /*val adRequest = AdRequest.Builder().build()
+        binding.banner.loadAd(adRequest)*/
     }
 
     private fun initListeners() {

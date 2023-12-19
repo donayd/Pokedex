@@ -3,14 +3,14 @@
     <string name="image_description">wallpaper</string>
 
     // Splash Screen
-    <string name="update_app">Por favor actualiza la Pokedex en la tienda</string>
+    <string name="update_app">Por favor actualiza la Retrodex en la tienda</string>
 
     // Item example
     <string name="pokemon_name">Pikachu</string>
 
     // Catch Screen
     <string name="tittle">Retrodex</string>
-    <string name="not_found">Pokemon\n no encontrado</string>
+    <string name="not_found">Pokemón\n no encontrado</string>
     <string name="loading">Cargando…</string>
 
     // Detail Screen
@@ -19,7 +19,5 @@
     <string name="detail_def">DEF:\n100</string>
     <string name="detail_ht">HT:\n100m</string>
     <string name="detail_wt">WT:\n100kg</string>
-
-    <string name="ADD_ID" />
 
 </resources>

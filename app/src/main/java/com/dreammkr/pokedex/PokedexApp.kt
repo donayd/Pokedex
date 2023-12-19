@@ -10,7 +10,7 @@ class PokedexApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        MobileAds.initialize(this)
-        RemoteConfig.init()
+        /*MobileAds.initialize(this)
+        RemoteConfig.init()*/
     }
 }
